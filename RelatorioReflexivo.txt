@@ -1,0 +1,10 @@
+Enfim, ao tentar implementar o código, os pontos mais complicados que encontrei foram:
+A String de Conexão: Achar a configuração certa. Um erro na senha, ou na porta (tive que lembrar que o MySQL usa a 3306, e não outra), ou até no nome do banco de dados (esquecer de criar) faz o programa quebrar logo de cara com o erro de conexão.
+
+O Bloco using: Entender por que ele é tão obrigatório,tive que pesquisar sobre não lembrava quando foi a aula. Tive dificuldade em assimilar que o using para o MySqlConnection e MySqlCommand é o que força o código a fechar e liberar os recursos.
+
+O MySqlDataReader: A forma de ler os resultados de um SELECT é dificel. O DataReader não me dá a lista completa, ele só me permite ler uma linha por vez. Tive que usar o laço while (reader.Read()) e depois a sintaxe para converter cada campo, como usar Convert.ToInt32() para o ID ou reader.GetString() para o Nome(também dei uma estudada nisso).
+
+A Sintaxe dos Parâmetros: Foi confuso usar o cmd.Parameters.AddWithValue(). Primeiro, parecia mais fácil só juntar as strings do SQL, mas tive que entender a sintaxe de usar o @ no comando (WHERE Id = @id) e depois a chamada AddWithValue().
+
+Também tive o problema com a compatibilidade do C# (Erro CS8370): A versão do meu projeto era antiga, o que exigiu que eu mudasse as declarações using mais modernas para o formato de bloco tradicional.
